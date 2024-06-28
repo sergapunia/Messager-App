@@ -1,20 +1,26 @@
 class UserContacts {
   static List<Contact> contactList = [
     Contact(
+        online: true,
         name: "Вася",
         surname: "Пупкин",
         urlLogo: "assets/user_images/pupkin.jpg"),
-    Contact(name: "Петя", surname: "Хрумкин"),
-    Contact(name: "Стёпа", surname: "Ступкин")
+    Contact(online: false, name: "Петя", surname: "Хрумкин"),
+    Contact(online: false, name: "Стёпа", surname: "Ступкин")
   ];
 }
 
 class Contact {
+  bool online;
   String name;
   String surname;
   String? urlLogo;
   List<Message> messages = [];
-  Contact({required this.name, required this.surname, this.urlLogo});
+  Contact(
+      {required this.name,
+      required this.surname,
+      this.urlLogo,
+      required this.online});
 }
 
 class Message {

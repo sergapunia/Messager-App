@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_messager_app/features/list_contacts/widgets/search_bar.dart';
 import 'package:test_messager_app/user_contacts.dart';
 import '../widgets/contact_card.dart';
 
@@ -27,44 +28,10 @@ class _ContactListState extends State<ContactList> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          margin: const EdgeInsets.all(15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text("Чаты",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600)),
-              TextField(
-                controller: controller,
-                onChanged: searchChats,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color.fromRGBO(237, 242, 246, 1),
-                  hintStyle: const TextStyle(color: Color(0xFFA1A5C0), fontSize: 16),
-                  prefixIcon: const Icon(
-                    Icons.search,
-                    size: 40,
-                    color: Color(0xFFA1A5C0),
-                  ),
-                  hintText: "Поиск",
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        color: Color.fromRGBO(237, 242, 246, 1)),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        color: Color.fromRGBO(237, 242, 246, 1)),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        searchBar(controller, searchChats),
         Expanded(
           child: ListView.separated(
-              separatorBuilder: (context, index) => Divider(
+              separatorBuilder: (context, index) => const Divider(
                     height: 0.1,
                     thickness: 0.2,
                   ),

@@ -14,8 +14,11 @@ class ContactCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Message> listMessages = contact.messages;
+    final userInherit = UserInherited.of(context);
     return GestureDetector(
       onTap: () {
+        userInherit.activeMessageContact = contact;
+        userInherit.addMessageContact(contact, "Привет дружище!", false);
         Route route = MaterialPageRoute(
             builder: (context) => ChatScreen(contact: contact));
         Navigator.push(context, route);

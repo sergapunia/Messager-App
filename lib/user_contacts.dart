@@ -1,10 +1,10 @@
 class UserContacts {
   static List<Contact> contactList = [
     Contact(
-        name: "Vasia",
+        name: "Вася",
         surname: "Пупкин",
         urlLogo: "assets/user_images/pupkin.jpg"),
-    Contact(name: "Petia", surname: "Хрумкин"),
+    Contact(name: "Петя", surname: "Хрумкин"),
     Contact(name: "Стёпа", surname: "Ступкин")
   ];
 }

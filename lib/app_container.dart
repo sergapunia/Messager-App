@@ -19,6 +19,9 @@ class MyApp extends StatelessWidget {
               message["time"]));
       start = false;
     }
+    MessagesForBot.messageList2.forEach((message) =>
+        userInherit.addMessageContact(userInherit.contactList[1], message["my"],
+            message["message"], message["image"], message["time"]));
 
     return HomeScreen();
   }

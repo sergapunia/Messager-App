@@ -18,7 +18,6 @@ class ContactCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         userInherit.activeMessageContact = contact;
-        userInherit.addMessageContact(contact, "Привет дружище!", false);
         Route route = MaterialPageRoute(
             builder: (context) => ChatScreen(contact: contact));
         Navigator.push(context, route);
@@ -51,11 +50,16 @@ class ContactCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Text(
-                      listMessages.isNotEmpty
-                          ? listMessages.last.message
-                          : "Нет сообщений",
-                      style: const TextStyle(fontWeight: FontWeight.w300))
+                  SizedBox(
+                    width: 250,
+                    child: Text(
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        listMessages.isNotEmpty
+                            ? listMessages.last.message==null?"...": listMessages.last.message!
+                            : "Нет сообщений",
+                        style: const TextStyle(fontWeight: FontWeight.w300)),
+                  )
                 ],
               ),
             ),

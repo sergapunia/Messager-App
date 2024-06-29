@@ -19,11 +19,10 @@ class UserInherited extends InheritedWidget {
 
 class UserContactsService extends ChangeNotifier {
   Contact? activeMessageContact;
-  List<Contact> searchList = [];
   List<Contact> contactList = [
     Contact(
       online: true,
-      name: "vasia",
+      name: "Вася",
       surname: "Пупкин",
       urlLogo: "assets/user_images/pupkin.jpg",
     ),
@@ -41,16 +40,16 @@ class UserContactsService extends ChangeNotifier {
     notifyListeners();
   }
 
-  void addMessageContact(Contact contact, String message, bool my) {
-    contact.messages.add(Message(
+  void addMessageContact(Contact contact, bool my,
+      [String? message, String? image, String? time]) {
+    contact.messages.add(
+      Message(
+        image: image ?? image,
         sender: my == false ? contact.name : "my",
-        message: message,
-        time: DateTime.now()));
-    notifyListeners();
-  }
-
-  void changeContacts(List<Contact> contacts) {
-    searchList = contacts;
+        message: message ?? message,
+        time: time == null ? DateTime.now() : DateTime.parse(time),
+      ),
+    );
     notifyListeners();
   }
 }
@@ -70,7 +69,12 @@ class Contact {
 
 class Message {
   String sender;
-  String message;
+  String? message;
+  String? image;
   DateTime time;
-  Message({required this.sender, required this.message, required this.time});
+  Message(
+      {required this.sender,
+      required this.message,
+      required this.time,
+      required this.image});
 }

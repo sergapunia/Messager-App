@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:test_messager_app/app_container.dart';
 import 'package:test_messager_app/user_contacts.dart';
-
-import 'screens/home_screen.dart';
 
 void main() {
   const SystemUiOverlayStyle(
@@ -13,7 +12,7 @@ void main() {
   runApp(UserInherited(
     contactsServise: UserContactsService(),
     child: MaterialApp(
-      home: HomeScreen(),
+      home: MyApp(),
       debugShowCheckedModeBanner: false,
     ),
   ));

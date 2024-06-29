@@ -15,7 +15,7 @@ class ChatScreen extends StatelessWidget {
       listenable: userInherit,
       builder: (context, child) => Scaffold(
         appBar: titleChat(contact, context),
-        body: MessagesCanvas(contact: contact),
+        body: MessagesCanvas(),
         bottomNavigationBar: bottomBar(contact),
       ),
     );

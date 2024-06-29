@@ -50,15 +50,27 @@ class ContactCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    width: 250,
-                    child: Text(
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        listMessages.isNotEmpty
-                            ? listMessages.last.message==null?"...": listMessages.last.message!
-                            : "Нет сообщений",
-                        style: const TextStyle(fontWeight: FontWeight.w300)),
+                  Row(
+                    children: [
+                      Text(
+                          listMessages.isNotEmpty
+                              ? "${contact.messages.last.sender == "my" ? "Вы: " : ""}"
+                              : "",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      SizedBox(
+                        width: 250,
+                        child: Text(
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            listMessages.isNotEmpty
+                                ? listMessages.last.message == null
+                                    ? "..."
+                                    : "${listMessages.last.message!}"
+                                : "Нет сообщений",
+                            style:
+                                const TextStyle(fontWeight: FontWeight.w300)),
+                      ),
+                    ],
                   )
                 ],
               ),
@@ -69,3 +81,4 @@ class ContactCard extends StatelessWidget {
     );
   }
 }
+//contact.messages.last.sender == "my" ? "Вы: " : ""

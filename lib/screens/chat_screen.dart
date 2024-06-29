@@ -19,7 +19,7 @@ class ChatScreen extends StatelessWidget {
         body: Column(
           children: [
             MessagesCanvas(),
-            bottomBar(contact),
+            BottomBar(),
           ],
         ),
       ),

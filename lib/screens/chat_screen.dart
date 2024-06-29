@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_messager_app/features/list_contacts/widgets/messages_canvas.dart';
+import 'package:test_messager_app/features/chat_with_contact/widgets/messages_canvas.dart';
 
 import '../features/chat_with_contact/chat_with_contact.dart';
 import '../features/chat_with_contact/widgets/bottom_margin.dart';
@@ -14,9 +14,14 @@ class ChatScreen extends StatelessWidget {
     return ListenableBuilder(
       listenable: userInherit,
       builder: (context, child) => Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: titleChat(contact, context),
-        body: MessagesCanvas(),
-        bottomNavigationBar: bottomBar(contact),
+        body: Column(
+          children: [
+            MessagesCanvas(),
+            bottomBar(contact),
+          ],
+        ),
       ),
     );
   }

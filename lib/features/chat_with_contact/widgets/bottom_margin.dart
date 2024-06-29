@@ -4,21 +4,11 @@ import '../../../user_contacts.dart';
 
 Widget bottomBar(Contact contact) {
   return Container(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            child: IconButton(
-              style: ButtonStyle(
-                  shape: WidgetStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),
-                  backgroundColor: WidgetStateProperty.all(
-                      Color.fromRGBO(237, 242, 246, 1))),
-              onPressed: () {},
-              icon: Icon(Icons.attach_file_rounded),
-            ),
-          ),
+          leftIcon(),
           Expanded(
             flex: 3,
             child: TextField(
@@ -41,17 +31,35 @@ Widget bottomBar(Contact contact) {
               ),
             ),
           ),
-          Container(
-            child: IconButton(
-              style: ButtonStyle(
-                  shape: WidgetStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))),
-                  backgroundColor: WidgetStateProperty.all(
-                      Color.fromRGBO(237, 242, 246, 1))),
-              onPressed: () {},
-              icon: Icon(Icons.mic_none),
-            ),
-          ),
+          rightIcon(),
         ],
       ));
+}
+
+Widget leftIcon() {
+  return Container(
+    child: IconButton(
+      style: ButtonStyle(
+          shape: WidgetStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+          backgroundColor:
+              WidgetStateProperty.all(Color.fromRGBO(237, 242, 246, 1))),
+      onPressed: () {},
+      icon: Icon(Icons.attach_file_rounded),
+    ),
+  );
+}
+
+Widget rightIcon() {
+  return Container(
+    child: IconButton(
+      style: ButtonStyle(
+          shape: WidgetStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+          backgroundColor:
+              WidgetStateProperty.all(Color.fromRGBO(237, 242, 246, 1))),
+      onPressed: () {},
+      icon: Icon(Icons.mic_none),
+    ),
+  );
 }
